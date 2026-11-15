@@ -38,7 +38,18 @@ Call `open_colab_browser_connection` to begin.
 - Prompt the user to keep the tab open while the agent works.
 - Wait for the dynamic tool list to register.
 
-### 2. Inspecting the Notebook
+### 2. Connecting to an Existing Notebook
+When a user provides a link to an existing notebook (e.g. `https://colab.research.google.com/drive/<notebook_id>`):
+- Colab MCP connects to a single browser tab at a time using session proxy parameters (`#mcpProxyToken=...&mcpProxyPort=...`).
+- Generate the direct bridge URL using the included helper script:
+  ```bash
+  python skills/google-colab/scripts/get_colab_url.py "<notebook_url>"
+  ```
+- Immediately supply the pre-configured link to the user:
+  `👉 [Open Notebook with Colab MCP](<bridge_url>)`
+- Remind the user to ensure only one Colab tab is open so the WebSocket connection attaches without contention.
+
+### 3. Inspecting the Notebook
 - Use `get_cells` to inspect existing code cells, markdown cells, and outputs in the current notebook.
 - Always check the current structure before appending or editing to avoid overwriting user work or duplicating setup.
 
