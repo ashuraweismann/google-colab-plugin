@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="colabYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9AB00" />
+      <stop offset="100%" stop-color="#E37400" />
+    </linearGradient>
+    <linearGradient id="colabOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9E0F" />
+      <stop offset="100%" stop-color="#D56B00" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.15" />
+    </filter>
+  </defs>
+  <!-- Background subtle rounded container for universal contrast -->
+  <rect width="256" height="256" rx="56" fill="#1E1E1E" />
+  
+  <!-- Colab Infinity Symbol (Left loop / Right loop) -->
+  <g transform="translate(18, 28) scale(0.86)" filter="url(#shadow)">
+    <!-- Left Loop (Yellow) -->
+    <path d="M 80 128 C 44 128 20 102 20 72 C 20 42 44 16 80 16 C 114 16 136 40 160 72 C 142 96 114 128 80 128 Z" fill="url(#colabYellow)" />
+    <path d="M 80 104 C 58 104 44 88 44 72 C 44 56 58 40 80 40 C 100 40 114 56 128 72 C 114 88 100 104 80 104 Z" fill="#1E1E1E" />
+
+    <!-- Right Loop (Orange) -->
+    <path d="M 176 16 C 212 16 236 42 236 72 C 236 102 212 128 176 128 C 142 128 120 104 96 72 C 114 48 142 16 176 16 Z" fill="url(#colabOrange)" />
+    <path d="M 176 40 C 198 40 212 56 212 72 C 212 88 198 104 176 104 C 156 104 142 88 128 72 C 142 56 156 40 176 40 Z" fill="#1E1E1E" />
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "colab-mcp": {
+      "command": "uvx",
+      "args": [
+        "--system-certs",
+        "git+https://github.com/googlecolab/colab-mcp"
+      ],
+      "env": {
+        "UV_SYSTEM_CERTS": "true"
+      },
+      "timeout": 30000
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "google-colab",
+  "displayName": "Google Colab",
+  "version": "0.1.0",
+  "description": "Connect AI agents to Google Colab to offload execution, create and run notebooks with cloud GPU/TPU acceleration, and interact in real time via the official Colab MCP Server.",
+  "logo": "assets/logo.svg",
+  "author": {
+    "name": "ashuraweismann",
+    "url": "https://github.com/ashuraweismann"
+  },
+  "homepage": "https://developers.googleblog.com/announcing-the-colab-mcp-server-connect-any-ai-agent-to-google-colab/",
+  "repository": "https://github.com/ashuraweismann/google-colab-plugin",
+  "suggestedPrompts": [
+    "Connect to Google Colab and run a GPU benchmark",
+    "Create a Colab notebook to analyze this dataset and plot graphs",
+    "Train a deep learning model using Colab's cloud compute"
+  ]
+}
