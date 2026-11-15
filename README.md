@@ -55,7 +55,9 @@ google-colab/
 │   └── AGENTS.md               # Active rules for compute offloading
 └── skills/
     └── google-colab/
-        └── SKILL.md            # Agent skill for session bridging and notebook management
+        ├── SKILL.md            # Agent skill for session bridging and notebook management
+        └── scripts/
+            └── get_colab_url.py # Utility to generate pre-configured 1-click bridge links
 ```
 
 ---
@@ -116,6 +118,13 @@ git clone https://github.com/ashuraweismann/google-colab-plugin.git ~/.gemini/co
 3. A Google Colab notebook tab will open automatically in your browser.
 4. **Keep the Colab browser tab open** to maintain the WebSocket bridge.
 5. The agent will iteratively create cells, execute code, verify outputs, and display results.
+
+### Editing Existing Notebooks
+When given an existing notebook link (`https://colab.research.google.com/drive/<id>`), the plugin uses its bridge generator to resolve the active session token and port:
+```bash
+python skills/google-colab/scripts/get_colab_url.py "<notebook_url>"
+```
+The agent supplies a direct pre-configured 1-click link (`...#mcpProxyToken=...&mcpProxyPort=...`) so the user can open their specific notebook directly into the active MCP session.
 
 ---
 
