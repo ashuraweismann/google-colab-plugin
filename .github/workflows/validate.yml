@@ -1,0 +1,39 @@
+name: Validate Plugin
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate Plugin Structure & Manifest
+        run: |
+          python -c "
+          import json, os, re, sys
+
+          with open('plugin.json', 'r') as f:
+              m = json.load(f)
+
+          assert re.match(r'^[a-z0-9]+(-[a-z0-9]+)*$', m['name']), 'Invalid name'
+          assert re.match(r'^\d+\.\d+\.\d+', m['version']), 'Invalid version'
+          assert m.get('\$schema') == 'https://antigravity.google/schemas/v1/plugin.json', 'Invalid schema'
+          assert 0 < len(m.get('suggestedPrompts', [])) <= 3, 'Invalid suggestedPrompts count'
+          assert os.path.exists(m['logo']), 'Logo missing'
+          assert os.path.exists('skills/google-colab/SKILL.md'), 'SKILL.md missing'
+          assert os.path.exists('rules/AGENTS.md'), 'AGENTS.md missing'
+          assert os.path.exists('mcp_config.json'), 'mcp_config.json missing'
+          assert os.path.exists('LICENSE'), 'LICENSE missing'
+          assert os.path.exists('README.md'), 'README.md missing'
+          print('✅ All plugin validation checks passed with 0 errors!')
+          "
