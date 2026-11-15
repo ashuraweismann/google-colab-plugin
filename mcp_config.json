@@ -1,18 +1,15 @@
 {
   "mcpServers": {
     "colab-mcp": {
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "tool",
-        "run",
-        "--from",
-        "git+https://github.com/googlecolab/colab-mcp",
-        "colab-mcp"
+        "--system-certs",
+        "git+https://github.com/googlecolab/colab-mcp"
       ],
       "env": {
         "UV_SYSTEM_CERTS": "true"
       },
-      "timeout": 120000
+      "timeout": 60000
     }
   }
 }
