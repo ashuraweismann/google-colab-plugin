@@ -143,3 +143,8 @@ In the open Colab browser tab, navigate to **Runtime > Change runtime type**, se
 ## License
 
 [Apache-2.0](LICENSE)
+
+## Trademark Notice
+
+Google Colab™ is a trademark of Google LLC. This plugin is an independent open-source community integration and is not affiliated with, sponsored by, or endorsed by Google LLC.
+
