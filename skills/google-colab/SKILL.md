@@ -1,6 +1,6 @@
 ---
 name: google-colab
-description: Interact with Google Colab via the official Colab MCP server. Offload heavy computation, machine learning, and data science tasks to Google Colab cloud runtimes (CPUs, GPUs, TPUs), programmatically create and structure notebook cells, execute Python code, and stream outputs in real time.
+description: Interact with Google Colab via the official Colab MCP server. Offload heavy computation, machine learning, and data science tasks to Google Colab cloud runtimes (CPUs, GPUs, TPUs), programmatically create and structure notebook cells, execute Python code, and stream outputs in real time. Use when the user wants to connect to Google Colab, create or edit Colab notebooks, execute code on cloud GPUs/TPUs, or offload intensive workloads to Colab.
 ---
 
 # Google Colab Integration
