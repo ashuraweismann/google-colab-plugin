@@ -135,9 +135,10 @@ In the open Colab browser tab, navigate to **Runtime > Change runtime type**, se
 
 ---
 
-## Author
+## Author & Credits
 
-Developed by [ashuraweismann](https://github.com/ashuraweismann).
+* **Plugin Author & Maintainer**: [ashuraweismann](https://github.com/ashuraweismann)
+* **Upstream MCP Server**: Powered by the official open-source [Google Colab MCP Server (`googlecolab/colab-mcp`)](https://github.com/googlecolab/colab-mcp), developed by the Google Colab team (Apache-2.0).
 
 ## License
 
