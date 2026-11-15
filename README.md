@@ -130,6 +130,9 @@ The agent supplies a direct pre-configured 1-click link (`...#mcpProxyToken=...&
 
 ## Troubleshooting & FAQ
 
+#### "Server is busy" or cannot connect when opening a new notebook (Single-Session Limit)
+The Google Colab MCP server enforces single-client exclusivity (`connection_lock`) over the local WebSocket bridge. Only **one active Colab tab** can connect to the MCP server at a time. If you have an earlier `empty.ipynb` scratch tab or another notebook open with the bridge token, the new connection will be rejected with "Server is busy". Simply **close any other open Colab tabs** in your browser before opening the new notebook link to let it connect immediately.
+
 #### The browser tab opened, but the agent says connection timed out
 The handshake token is valid for a short window (typically 60 seconds). Ensure you are logged into your Google account and keep the newly opened Colab tab in the foreground until the connection establishes.
 
