@@ -1,7 +1,8 @@
 {
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "google-colab",
   "displayName": "Google Colab",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Connect AI agents to Google Colab to offload execution, create and run notebooks with cloud GPU/TPU acceleration, and interact in real time via the official Colab MCP Server.",
   "logo": "assets/logo.svg",
   "author": {

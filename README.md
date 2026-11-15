@@ -1,8 +1,9 @@
 # Google Colab Plugin
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](plugin.json)
 
-Connect AI coding agents to **Google Colab** via the official [Colab MCP Server (`colab-mcp`)](https://github.com/googlecolab/colab-mcp), based on the Google Developers announcement: [*Announcing the Colab MCP Server: Connect any AI Agent to Google Colab*](https://developers.googleblog.com/announcing-the-colab-mcp-server-connect-any-ai-agent-to-google-colab/).
+Connect AI coding agents to **Google Colab** via the official [Colab MCP Server (`colab-mcp`)](https://github.com/googlecolab/colab-mcp), built to the [Google Antigravity Plugin Standards](https://antigravity.google/docs/build-plugins/).
 
 ---
 
@@ -20,7 +21,7 @@ Connect AI coding agents to **Google Colab** via the official [Colab MCP Server 
 ```
 +-------------------+       MCP        +---------------------+
 |   AI Assistant    | <=============> |  colab-mcp (local)  |
-|                   |                 +----------+----------+
+|   (Antigravity)   |                 +----------+----------+
 +-------------------+                            |
                                       Local      | WebSocket
                                       Bridge     | (localhost)
@@ -40,6 +41,54 @@ Connect AI coding agents to **Google Colab** via the official [Colab MCP Server 
 
 ---
 
+## Directory Structure
+
+```text
+google-colab/
+├── plugin.json                 # Manifest complying with antigravity.google/schemas/v1/plugin.json
+├── README.md                   # Plugin documentation and setup instructions
+├── LICENSE                     # Apache 2.0 open-source license
+├── mcp_config.json             # MCP server configuration for colab-mcp
+├── assets/
+│   └── logo.svg                # Colab branding logo
+├── rules/
+│   └── AGENTS.md               # Active rules for compute offloading
+└── skills/
+    └── google-colab/
+        └── SKILL.md            # Agent skill for session bridging and notebook management
+```
+
+---
+
+## Installation
+
+### Via Antigravity CLI (`agy`)
+```bash
+# Clone the repository
+git clone https://github.com/ashuraweismann/google-colab-plugin.git
+
+# Validate manifest and components
+agy plugin validate --strict ./google-colab-plugin
+
+# Install locally
+agy plugin install ./google-colab-plugin
+```
+
+### Manual Installation
+Clone directly into your Antigravity user plugins directory:
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/ashuraweismann/google-colab-plugin.git "$env:USERPROFILE\.gemini\config\plugins\google-colab"
+```
+
+**macOS / Linux:**
+```bash
+git clone https://github.com/ashuraweismann/google-colab-plugin.git ~/.gemini/config/plugins/google-colab
+```
+
+---
+
 ## Prerequisites
 
 1. **Python 3.10+ & `uv`**:
@@ -51,30 +100,6 @@ Connect AI coding agents to **Google Colab** via the official [Colab MCP Server 
    Colab's web interface initiates a local WebSocket connection to `localhost`. Google Chrome is recommended for seamless Private Network Access compatibility.
 3. **Google Account**:
    Ensure you are logged into [Google Colab](https://colab.research.google.com) in your browser.
-
----
-
-## Configuration
-
-The MCP server configuration in `mcp_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "colab-mcp": {
-      "command": "uvx",
-      "args": [
-        "--system-certs",
-        "git+https://github.com/googlecolab/colab-mcp"
-      ],
-      "env": {
-        "UV_SYSTEM_CERTS": "true"
-      },
-      "timeout": 30000
-    }
-  }
-}
-```
 
 ---
 
